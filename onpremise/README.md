@@ -31,6 +31,15 @@ NAME       TYPE        CLUSTER-IP       EXTERNAL-IP    PORT(S)           AGE
 jenkins    NodePort    10.103.31.217    <none>         8080:32664/TCP    59s
 ```
 
+if you want to update the prefix without helm command you can edit the deployment adding.
+
+```
+    env:
+    - name: JENKINS_OPTS
+      value: --prefix=/jenkins
+    volumeMounts: ....
+```
+
 ## Accessing to the Jenkins dashboard
 
 If you are in minukube you can use:

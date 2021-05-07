@@ -99,6 +99,49 @@ jenkinsci         LoadBalancer   10.0.175.83    52.224.23.88   8080:32238/TCP   
 jenkinsci-agent   ClusterIP      10.0.221.114   <none>         50000/TCP        24m
 ```
 
+## Jenkins behind Ingress Controller
+
+You can add the prefix "/jenkins" since the installation by helm.
+
+> $ helm install jenkins jenkinsci/jenkins --set controller.jenkinsUriPrefix='/jenkins'
+
+Or, if you've already installed Jenkins by helm
+
+> helm upgrade jenkins jenkinsci/jenkins --set controller.jenkinsUriPrefix='/jenkins'
+
+Finally, if you want to update the prefix without helm command, you should update the statefulset adding.
+
+```
+    env:
+    - name: JENKINS_OPTS
+      value: --prefix=/jenkins
+```
+
+Then, in the manifest ingress controller:
+
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  namespace: jenkins
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /jenkins
+        pathType: Prefix
+        backend:
+          service:
+            name: jenkins
+            port:
+              number: 8080
+```
+
+
 Now, we can acces via browser by the external ip with the port 8080.
 
 Getting admin password
