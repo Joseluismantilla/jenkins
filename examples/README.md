@@ -1,12 +1,24 @@
 # Jenkins Examples
 
-## Deploying from Jenkins to Azure Kubernetes
+## Jenkins on Azure - Examples
 
-Source: https://docs.microsoft.com/en-us/azure/developer/jenkins/deploy-from-github-to-aks
+Jenkins plugins for Azure: https://docs.microsoft.com/en-us/azure/developer/jenkins/plug-ins-for-azure
+
+Installing Jenkins on Azure VM: https://docs.microsoft.com/en-us/azure/developer/jenkins/configure-on-linux-vm
+
+Scale Jenkins with VMs on Azure: https://docs.microsoft.com/en-us/azure/developer/jenkins/scale-deployments-using-vm-agents?tabs=windows
+
+Jenkins build agents as azure container instances: https://docs.microsoft.com/en-us/azure/developer/jenkins/azure-container-instances-as-jenkins-build-agent
+
+Deploy from github to AKS: https://docs.microsoft.com/en-us/azure/developer/jenkins/deploy-from-github-to-aks
+
+Creating a Jenkins pipeline using github and docker: https://docs.microsoft.com/en-us/azure/developer/jenkins/pipeline-with-github-and-docker
 
 Jenkins X on AkS: https://cloudblogs.microsoft.com/opensource/2019/03/06/jenkins-x-azure-kubernetes-service-setup/
 
-##Kubernetes example
+More Jenkins info: https://docs.microsoft.com/en-us/azure/developer/jenkins/
+
+## Kubernetes example
 
 Fill in the Kubernetes plugin configuration. In order to do that, you will open the Jenkins UI and navigate to 
 **Manage Jenkins -> Configure System -> Cloud -> Kubernetes** and enter in the *Kubernetes URL* and *Jenkins URL*
